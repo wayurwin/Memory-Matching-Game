@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="container visible">
+        <h1>Memory Match Game</h1>
+        <p>Select a Category to Start:</p>
+        <button onclick="selectDifficulty('medium', 'fruits')">Fruits</button>
+        <button onclick="selectDifficulty('medium', 'emojis')">Emojis</button>
+        <button onclick="selectDifficulty('medium', 'animals')">Animals</button>
+        <button onclick="selectDifficulty('medium', 'planets')">Planets</button>
+        <button onclick="selectDifficulty('medium', 'history')">Historical Images</button>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" class="hidden">
+        <div id="player-info">
+            <p>Score: <span id="score">0</span></p>
+            <p>Time Left: <span id="timer">30</span> seconds</p>
+        </div>
+
+        <!-- Difficulty Selection and Hint Button -->
+        <div id="difficulty">
+            <button onclick="selectDifficulty('easy', currentCategory)">Easy</button>
+            <button onclick="selectDifficulty('medium', currentCategory)">Medium</button>
+            <button onclick="selectDifficulty('hard', currentCategory)">Hard</button>
+        </div>
+
+        <button id="hint-button" onclick="showHint()">Hint</button>
+
+        <!-- Progress Bar -->
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <!-- Card Grid and Restart Button -->
+        <div id="card-grid" class="grid"></div>
+        <button id="restart-btn" onclick="restartGame()">Restart Game</button>
+        <!-- Leaderboard -->
+        <div id="leaderboard"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

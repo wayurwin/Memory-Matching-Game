@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+}
+
+#game-container {
+    animation: slideIn 1s ease;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+    outline: 3px solid #4CAF50;
+}
+
+#restart-btn, #hint-button {
+    display: inline-block; 
+    margin-top: 20px;
+}
+
+/* Card Grid */
+#card-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transform: rotateY(0deg);
+    transition: transform 0.5s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* Progress Bar */
+#progress-bar-container {
+    width: 100%;
+    background: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    transition: width 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+
+/* For large screens (Desktops, Laptops) */
+@media (min-width: 1024px) {
+    #card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* For tablets */
+@media (min-width: 600px) and (max-width: 1023px) {
+    #card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 599px) {
+    #card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* For iPhones with small screens */
+@media (max-width: 375px) {
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 6px 12px;
+    }
+}
